@@ -76,7 +76,7 @@ const INITIAL_PROPERTIES = [
 ];
 
 const LOGO_B64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVR4nO3csY2DMBQF0D8uAGUh7B6GsgYrkDWYghGogRHYhDFAYASGgI6XG1NIdV0u2vS+5Oue/X7Z0m9KA4CIsUoXABAzKFAgoECBgAIFAsQUCBgoUCCgQIGAAgUCAQUKBBQoEFCgQICAAgUCAQUKBBQoEFAgoECBgAIFAsQUCBgoUCAQUKBAQIECgZgCBQMEChSIAQUCBAUCMQUKBAgKBOIMCBQoxBIoEFCgQIEYUCBAYKBAQIECMRv7I8S09wREfInYnyH2Y4jZInZoCB8YwgcG+8AgHzDQBwb4gEE+MJAPDPEBAnxgQA8M6IEBPTCIBwZxgIE8MAgDDOSBIXxgIA8M4QND+MAQPjCAByYBAhYgYAECECBgAQIYIGABABAgYAECECBgAQIYIGABABAYIAABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAIEDAAAYYDAhiAAMP9iAEHDBgwYMABAwaY3A4Y/H7A4M8DBn8fMPDzgEGfBwz4PGDA3xcY8HXA4NcDAAAAMB9/AbpWl73h+ZgXAAAAAElFTkSuQmCC";
-const WHATSAPP_LINK = "https://wa.me/5521984314779";
+const WHATSAPP_LINK = "https://wa.me/5521999905616?text=Olá!%20Vi%20seu%20portfolio%20luxuoso%20e%20gostaria%20de%20mais%20informações.";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -510,7 +510,7 @@ export default function App() {
                    <h4 className="text-gold font-sophisticated text-2xl italic mb-8">Contato</h4>
                    <div className="flex flex-col gap-6 text-white/40 text-sm">
                      <a href={WHATSAPP_LINK} target="_blank" className="flex items-center gap-3 hover:text-gold transition-colors text-lg">
-                       <MessageCircle size={24} /> WhatsApp: (21) 98431-4779
+                       <MessageCircle size={24} /> WhatsApp: (21) 99990-5616
                      </a>
                      <div className="flex items-center gap-3 text-lg">
                        <Phone size={24} /> Atendimento Premium 24/7
@@ -562,29 +562,35 @@ export default function App() {
                   className="bg-[#050a14] border border-white/10 rounded-3xl w-full max-w-6xl overflow-hidden relative"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-2">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 h-full">
                     {/* Multi Image Sidebar */}
-                    <div className="h-[400px] lg:h-auto border-r border-white/5 bg-[#02050a]">
-                      <div className="h-full overflow-y-auto p-6 scrollbar-hide">
-                        <div className="grid grid-cols-1 gap-4">
+                    <div className="lg:col-span-5 h-[400px] lg:h-[80vh] border-r border-white/5 bg-[#02050a] relative">
+                      <div className="h-full overflow-y-auto p-4 md:p-8 scroll-smooth custom-scrollbar">
+                        <div className="flex flex-col gap-6">
                           {selectedProperty.allImages?.map((img: string, idx: number) => (
-                            <motion.img
+                            <motion.div
                               key={idx}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: idx * 0.1 }}
-                              src={img}
-                              alt={`Vista ${idx + 1}`}
-                              className="w-full h-auto rounded-lg shadow-2xl hover:scale-[1.02] transition-transform cursor-zoom-in"
-                              referrerPolicy="no-referrer"
-                            />
+                              initial={{ opacity: 0, y: 30 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: idx * 0.1, duration: 1 }}
+                            >
+                              <img
+                                src={img}
+                                alt={`Vista ${idx + 1}`}
+                                className="w-full h-auto rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 hover:border-gold/30 transition-all cursor-zoom-in"
+                                referrerPolicy="no-referrer"
+                              />
+                            </motion.div>
                           ))}
                         </div>
+                      </div>
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gold/80 animate-bounce">
+                        Role para ver mais
                       </div>
                     </div>
 
                     {/* Property Description */}
-                    <div className="p-8 lg:p-16 flex flex-col justify-center">
+                    <div className="lg:col-span-7 p-8 lg:p-20 flex flex-col justify-center bg-[#050a14] overflow-y-auto">
                       <div className="flex items-center gap-3 mb-6">
                         <span className="w-12 h-px bg-gold/50" />
                         <span className="text-gold uppercase tracking-[0.4em] text-[10px] font-bold">Oportunidade de Investimento</span>
@@ -638,11 +644,11 @@ export default function App() {
 
                       <div className="flex flex-col sm:flex-row gap-6">
                         <a
-                          href={WHATSAPP_LINK}
+                          href={`${WHATSAPP_LINK}&text=Olá!%20Gostaria%20de%20mais%20detalhes%20sobre%20o%20${encodeURIComponent(selectedProperty.name)}`}
                           target="_blank"
                           className="flex-1 bg-gold text-black px-8 py-5 rounded-full text-xs font-black uppercase tracking-widest text-center shadow-[0_15px_30px_rgba(197,160,89,0.3)] hover:scale-105 transition-all"
                         >
-                          Agendar Visita Agora
+                          Solicitar Detalhes do Imóvel
                         </a>
                         <button className="flex-1 border border-white/10 px-8 py-5 rounded-full text-xs uppercase tracking-widest hover:bg-white/5 transition-all">
                           Baixar Catálogo PDF
