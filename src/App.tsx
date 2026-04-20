@@ -17,12 +17,12 @@ const HERO_IMAGE_URL = "https://i.postimg.cc/C5JR5MB0/Whats-App-Image-2026-04-17
 const INITIAL_PROPERTIES = [
   {
     id: 1,
-    name: "Golden Residence - 2 Quartos",
+    name: "Golden Residence - Elite 2Q",
     price: "A partir de R$ 410.000",
     image: "https://i.postimg.cc/RVNDRzyD/Whats-App-Image-2026-04-19-at-16-25-39.jpg",
-    details: "Conforto & Sofisticação",
-    description: "Experimente a harmonia perfeita entre design contemporâneo e funcionalidade. O Golden Residence de 2 quartos com suíte foi projetado para casais e jovens famílias que não abrem mão de uma localização privilegiada e acabamentos de altíssimo padrão. Cada detalhe, da varanda gourmet aos revestimentos premium, foi pensado para elevar sua experiência de morar.",
-    tags: ["2 Quartos", "1 Suíte", "Varanda Gourmet"],
+    details: "Padrão Xavier de Luxo",
+    description: "O Golden Residence é o encontro perfeito entre elegância e modernidade. Esta unidade de 2 quartos (1 suíte) oferece um layout inteligente, varanda gourmet com vista privilegiada e um acabamento premium em cada detalhe. Localizado no coração de Nova Iguaçu, é o cenário ideal para sua nova vida de conquistas.",
+    tags: ["2 Quartos", "1 Suíte", "Suíte Master"],
     allImages: [
       "https://i.postimg.cc/RVNDRzyD/Whats-App-Image-2026-04-19-at-16-25-39.jpg",
       "https://i.postimg.cc/05t4DNW3/Whats-App-Image-2026-04-19-at-16-25-39-(1).jpg",
@@ -34,16 +34,16 @@ const INITIAL_PROPERTIES = [
   },
   {
     id: 2,
-    name: "Golden Residence - 3 Quartos",
+    name: "Golden Residence - Premium 3Q",
     price: "A partir de R$ 450.000",
     image: "https://i.postimg.cc/vHcNzdCy/Whats-App-Image-2026-04-19-at-16-25-40.jpg",
-    details: "Amplitude & Exclusividade",
-    description: "A joia da coroa do Golden Residence. Este suntuoso apartamento de 3 quartos com suíte oferece espaços amplos e integrados, ideais para receber convidados com a elegância que você merece. A suíte master é um santuário de tranquilidade, e a área social flui naturalmente para uma varanda com vista panorâmica. Um investimento seguro para quem busca o extraordinário.",
-    tags: ["3 Quartos", "1 Suíte", "Luxo"],
+    details: "Exclusividade Absoluta",
+    description: "A joia da coroa do empreendimento. Com 3 quartos amplos e 1 suíte master, esta residência foi projetada para famílias que exigem espaço, conforto e status. A integração perfeita entre a sala de estar e a varanda proporciona o ambiente ideal para recepções luxuosas. Acabamento suntuoso e infraestrutura completa de alto padrão.",
+    tags: ["3 Quartos", "1 Suíte", "Alto Padrão"],
     allImages: [
       "https://i.postimg.cc/vHcNzdCy/Whats-App-Image-2026-04-19-at-16-25-40.jpg",
-      "https://i.postimg.cc/05t4DNW3/Whats-App-Image-2026-04-19-at-16-25-39-(1).jpg",
       "https://i.postimg.cc/RVNDRzyD/Whats-App-Image-2026-04-19-at-16-25-39.jpg",
+      "https://i.postimg.cc/05t4DNW3/Whats-App-Image-2026-04-19-at-16-25-39-(1).jpg",
       "https://i.postimg.cc/RVNDRzyY/Whats-App-Image-2026-04-19-at-16-25-40-(1).jpg",
       "https://i.postimg.cc/HsVh2CRv/Whats-App-Image-2026-04-19-at-16-25-40-(2).jpg",
       "https://i.postimg.cc/fTJrKhpp/Whats-App-Image-2026-04-19-at-16-25-40-(3).jpg"
@@ -51,12 +51,12 @@ const INITIAL_PROPERTIES = [
   },
   {
     id: 3,
-    name: "Uniq Residencial",
+    name: "Uniq Residencial - Modern",
     price: "A partir de R$ 213.000",
     image: "https://i.postimg.cc/MZjsMYBw/Whats-App-Image-2026-04-19-at-16-26-11.jpg",
-    details: "Inteligente & Versátil",
-    description: "Inovação é a palavra de ordem no Uniq Residencial. Criado para mentes modernas e estilos de vida ágeis, este empreendimento traz apartamentos de 2 quartos com suíte que priorizam a inteligência espacial e a luz natural. No Uniq, a sofisticação encontra a praticidade em um endereço que coloca você no centro de tudo, sem abrir mão do silêncio e da privacidade.",
-    tags: ["2 Quartos", "1 Suíte", "Inovador"],
+    details: "Inteligência & Design",
+    description: "Inovação é a alma do Uniq. Apartamentos de 2 quartos com 1 suíte pensados para o estilo de vida cosmopolita. Arquitetura autoral, espaços otimizados e uma localização que te deixa no centro de tudo. O investimento com maior potencial de valorização da região, unindo praticidade e o luxo acessível do padrão Xavier.",
+    tags: ["2 Quartos", "1 Suíte", "Alta Valorização"],
     allImages: [
       "https://i.postimg.cc/MZjsMYBw/Whats-App-Image-2026-04-19-at-16-26-11.jpg",
       "https://i.postimg.cc/HW7SctMY/Whats-App-Image-2026-04-19-at-16-26-12.jpg",
@@ -82,7 +82,26 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [doorOpen, setDoorOpen] = useState(false);
   const [selectedProperty, setSelectedProperty] = useState<any>(null);
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [properties, setProperties] = useState(INITIAL_PROPERTIES);
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!selectedProperty) return;
+    setCurrentImgIndex((prev) => (prev + 1) % (selectedProperty.allImages?.length || 1));
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!selectedProperty) return;
+    setCurrentImgIndex((prev) => (prev - 1 + (selectedProperty.allImages?.length || 1)) % (selectedProperty.allImages?.length || 1));
+  };
+
+  useEffect(() => {
+    if (selectedProperty) {
+      setCurrentImgIndex(0);
+    }
+  }, [selectedProperty]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -557,102 +576,119 @@ export default function App() {
                 </div>
                 
                 <motion.div
-                  initial={{ scale: 0.9, y: 20 }}
-                  animate={{ scale: 1, y: 0 }}
-                  className="bg-[#050a14] border border-white/10 rounded-3xl w-full max-w-6xl overflow-hidden relative"
+                  initial={{ scale: 0.95, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="bg-[#05060a] border border-white/10 rounded-[2rem] w-full max-w-6xl overflow-hidden relative shadow-2xl"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-12 h-full">
-                    {/* Multi Image Sidebar */}
-                    <div className="lg:col-span-5 h-[400px] lg:h-[80vh] border-r border-white/5 bg-[#02050a] relative">
-                      <div className="h-full overflow-y-auto p-4 md:p-8 scroll-smooth custom-scrollbar">
-                        <div className="flex flex-col gap-6">
-                          {selectedProperty.allImages?.map((img: string, idx: number) => (
-                            <motion.div
-                              key={idx}
-                              initial={{ opacity: 0, y: 30 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: idx * 0.1, duration: 1 }}
-                            >
-                              <img
-                                src={img}
-                                alt={`Vista ${idx + 1}`}
-                                className="w-full h-auto rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 hover:border-gold/30 transition-all cursor-zoom-in"
-                                referrerPolicy="no-referrer"
-                              />
-                            </motion.div>
-                          ))}
-                        </div>
-                      </div>
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-[10px] uppercase tracking-widest text-gold/80 animate-bounce">
-                        Role para ver mais
+                  <div className="flex flex-col lg:flex-row h-full max-h-[90vh]">
+                    {/* Simple Carousel Gallery (Left) */}
+                    <div className="lg:w-3/5 bg-black relative flex items-center justify-center min-h-[350px] group border-b lg:border-b-0 lg:border-r border-white/5">
+                      <AnimatePresence mode="wait">
+                        <motion.img
+                          key={currentImgIndex}
+                          src={selectedProperty.allImages?.[currentImgIndex] || selectedProperty.image}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -20 }}
+                          transition={{ duration: 0.3 }}
+                          className="w-full h-full object-contain"
+                          referrerPolicy="no-referrer"
+                        />
+                      </AnimatePresence>
+
+                      {/* Nav Arrows */}
+                      {(selectedProperty.allImages?.length || 0) > 1 && (
+                        <>
+                          <button 
+                            onClick={prevImage}
+                            className="absolute left-4 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all opacity-0 group-hover:opacity-100"
+                          >
+                            <ChevronRight className="rotate-180" size={24} />
+                          </button>
+                          <button 
+                            onClick={nextImage}
+                            className="absolute right-4 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all opacity-0 group-hover:opacity-100"
+                          >
+                            <ChevronRight size={24} />
+                          </button>
+                        </>
+                      )}
+
+                      {/* Image Counter Indicator */}
+                      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-xl px-4 py-1.5 rounded-full border border-white/10 flex gap-2">
+                        {selectedProperty.allImages?.map((_: any, idx: number) => (
+                          <div 
+                            key={idx}
+                            className={`w-1.5 h-1.5 rounded-full transition-all ${idx === currentImgIndex ? "bg-gold scale-125" : "bg-white/20"}`}
+                          />
+                        ))}
                       </div>
                     </div>
 
-                    {/* Property Description */}
-                    <div className="lg:col-span-7 p-8 lg:p-20 flex flex-col justify-center bg-[#050a14] overflow-y-auto">
-                      <div className="flex items-center gap-3 mb-6">
-                        <span className="w-12 h-px bg-gold/50" />
-                        <span className="text-gold uppercase tracking-[0.4em] text-[10px] font-bold">Oportunidade de Investimento</span>
+                    {/* Proposta Inteligente (Right Panel) */}
+                    <div className="lg:w-2/5 p-8 lg:p-12 flex flex-col bg-[#05060a] overflow-y-auto custom-scrollbar">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="w-6 h-px bg-gold/50" />
+                        <span className="text-gold uppercase tracking-[0.5em] text-[8px] font-black">Proposta Premium Xavier</span>
                       </div>
                       
-                      <h2 className="text-4xl md:text-6xl font-fashion mb-6 leading-tight">{selectedProperty.name}</h2>
-                      <p className="text-gold text-2xl font-bold mb-8">{selectedProperty.price}</p>
+                      <h2 className="text-3xl md:text-4xl font-fashion mb-1 leading-tight">{selectedProperty.name}</h2>
+                      <p className="text-gold text-2xl font-bold mb-6 italic">{selectedProperty.price}</p>
                       
-                      <div className="space-y-6 mb-12">
-                        <p className="text-white/60 text-lg leading-relaxed font-light italic">
-                          {selectedProperty.description}
-                        </p>
-                        
-                        <div className="grid grid-cols-2 gap-6 border-y border-white/5 py-8">
-                           <div className="flex items-center gap-4">
-                             <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                               <Building2 size={18} />
+                      <div className="space-y-8 flex-grow">
+                        <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
+                          <p className="text-white/70 text-sm leading-relaxed font-light">
+                            {selectedProperty.description}
+                          </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-4">
+                           <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                             <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                               <Award size={20} />
                              </div>
                              <div>
-                               <p className="text-[10px] text-white/30 uppercase tracking-widest font-bold">Suítes</p>
-                               <p className="text-lg font-fashion">1 Master</p>
+                               <h4 className="text-[10px] font-black uppercase tracking-widest text-gold/80 mb-1">Localização</h4>
+                               <p className="text-xs text-white/50 leading-relaxed font-sophisticated italic">Ponto estratégico no Coração de Nova Iguaçu.</p>
                              </div>
                            </div>
-                           <div className="flex items-center gap-4">
-                             <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                               <Star size={18} />
+
+                           <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                             <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                               <Building2 size={20} />
                              </div>
                              <div>
-                               <p className="text-[10px] text-white/30 uppercase tracking-widest font-bold">Investimento</p>
-                               <p className="text-lg font-fashion">Alta Valorização</p>
+                               <h4 className="text-[10px] font-black uppercase tracking-widest text-gold/80 mb-1">Infraestrutura</h4>
+                               <p className="text-xs text-white/50 leading-relaxed font-sophisticated italic">Lazer completo com piscina, academia e spa privativo.</p>
                              </div>
                            </div>
-                           <div className="flex items-center gap-4">
-                             <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                               <Award size={18} />
+
+                           <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                             <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0">
+                               <Star size={20} />
                              </div>
                              <div>
-                               <p className="text-[10px] text-white/30 uppercase tracking-widest font-bold">Status</p>
-                               <p className="text-lg font-fashion">Pronto para Morar</p>
+                               <h4 className="text-[10px] font-black uppercase tracking-widest text-gold/80 mb-1">Valorização</h4>
+                               <p className="text-xs text-white/50 leading-relaxed font-sophisticated italic">Excelente oportunidade para investidores de alto nível.</p>
                              </div>
                            </div>
                         </div>
+
+                        <div className="p-5 rounded-xl border border-gold/20 bg-gold/5 flex items-center gap-4">
+                           <div className="w-2 h-2 rounded-full bg-gold animate-pulse shrink-0" />
+                           <p className="text-[10px] text-gold uppercase tracking-[0.2em] font-black italic">Financiamento Exclusivo Bradesco Prime disponível</p>
+                        </div>
                       </div>
 
-                      <div className="bg-gold/5 border border-gold/10 p-6 rounded-2xl mb-8">
-                        <p className="text-gold text-[10px] uppercase tracking-[0.3em] font-black mb-2">Exclusividade Xavier</p>
-                        <p className="text-white/60 text-sm leading-relaxed italic">
-                          "Nossa proposta para o {selectedProperty.name} inclui assessoria jurídica completa e taxas de financiamento exclusivas para clientes Prime."
-                        </p>
-                      </div>
-
-                      <div className="flex flex-col sm:flex-row gap-6">
+                      <div className="mt-10">
                         <a
-                          href={`${WHATSAPP_LINK}&text=Olá!%20Gostaria%20de%20mais%20detalhes%20sobre%20o%20${encodeURIComponent(selectedProperty.name)}`}
+                          href={`${WHATSAPP_LINK}&text=Olá!%20Gostaria%20da%20proposta%20do%20${encodeURIComponent(selectedProperty.name)}.`}
                           target="_blank"
-                          className="flex-1 bg-gold text-black px-8 py-5 rounded-full text-xs font-black uppercase tracking-widest text-center shadow-[0_15px_30px_rgba(197,160,89,0.3)] hover:scale-105 transition-all"
+                          className="w-full bg-gold text-black py-5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-center shadow-[0_15px_30px_rgba(197,160,89,0.3)] hover:brightness-110 transition-all flex items-center justify-center gap-3"
                         >
-                          Solicitar Detalhes do Imóvel
+                          <MessageCircle size={18} /> Solicitar Proposta Oficial
                         </a>
-                        <button className="flex-1 border border-white/10 px-8 py-5 rounded-full text-xs uppercase tracking-widest hover:bg-white/5 transition-all">
-                          Baixar Catálogo PDF
-                        </button>
                       </div>
                     </div>
                   </div>
