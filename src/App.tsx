@@ -12,7 +12,7 @@ import { ChatAssistant } from "./components/ChatAssistant";
 const LUXURY_BUILDING_B64 = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYWFRgWFhUZGRgaGhwYHBwcHBgaHBgaGhoZGRoaGRocIy8lHB4rJxoaJjgmKzAxNTU1GiQ7QDs0Py40NTEBDAwMDw8PEQ8PEDEdGB0xMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMf/AABEIAKAA8AMBIgACEQEDEQH/xAAaAAEAAwEBAQAAAAAAAAAAAAAAAQIDBAUG/8QAPRAAAgIBAwIDBAkCBQQDAAAAAQIAEQMSITEEQRMiUWEFMmFxBhQVIzNCUoGhkaKxwXKCkrLRFvDxNGLh/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwX/xAAdEQEBAQEBAAMBAQAAAAAAAAAAARESITFBA1Ei/9oADAMBAAFTERAxEAPwD7EiKioqaHkRFRURURFRURAisREVEREVEREVEREVEREVEREVEREVEREVEREVEREVEREVEREVEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERECIkyICIkyICIkyICIkyICIkyICIkyICIkyIExEiBIiSIExIiBIiSIEiJIiBIiICIiBIiSICIiBIiSICIiBIiSICIiBIiSICIiBIiSICIiBIiSICIiBIiSICIiAoipIExEiBIiSICIiBMSJEAiIiQWqKkREEREVEREVEREVEREVEREVEREVEREVEREVEREVEREQUiRIqSBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREDXwqo6HwU6EIdUUREQUVNRURBRU1FREQUVNRURBRU1FREQUVNRURBRU1FREQUVNRURBRU1FRH//Z";
 
 // User provided images
-const HERO_IMAGE_URL = "https://i.postimg.cc/C5JR5MB0/Whats-App-Image-2026-04-17-at-22-21-53.jpg";
+const HERO_IMAGE_URL = "https://i.postimg.cc/RVNDRzyD/Whats-App-Image-2026-04-19-at-16-25-39.jpg";
 
 const INITIAL_PROPERTIES = [
   {
@@ -36,15 +36,15 @@ const INITIAL_PROPERTIES = [
     id: 2,
     name: "Golden Residence - Premium 3Q",
     price: "A partir de R$ 450.000",
-    image: "https://i.postimg.cc/vHcNzdCy/Whats-App-Image-2026-04-19-at-16-25-40.jpg",
+    image: "https://i.postimg.cc/RVNDRzyY/Whats-App-Image-2026-04-19-at-16-25-40-(1).jpg",
     details: "Exclusividade Absoluta",
     description: "A joia da coroa do empreendimento. Com 3 quartos amplos e 1 suíte master, esta residência foi projetada para famílias que exigem espaço, conforto e status. A integração perfeita entre a sala de estar e a varanda proporciona o ambiente ideal para recepções luxuosas. Acabamento suntuoso e infraestrutura completa de alto padrão.",
     tags: ["3 Quartos", "1 Suíte", "Alto Padrão"],
     allImages: [
+      "https://i.postimg.cc/RVNDRzyY/Whats-App-Image-2026-04-19-at-16-25-40-(1).jpg",
       "https://i.postimg.cc/vHcNzdCy/Whats-App-Image-2026-04-19-at-16-25-40.jpg",
       "https://i.postimg.cc/RVNDRzyD/Whats-App-Image-2026-04-19-at-16-25-39.jpg",
       "https://i.postimg.cc/05t4DNW3/Whats-App-Image-2026-04-19-at-16-25-39-(1).jpg",
-      "https://i.postimg.cc/RVNDRzyY/Whats-App-Image-2026-04-19-at-16-25-40-(1).jpg",
       "https://i.postimg.cc/HsVh2CRv/Whats-App-Image-2026-04-19-at-16-25-40-(2).jpg",
       "https://i.postimg.cc/fTJrKhpp/Whats-App-Image-2026-04-19-at-16-25-40-(3).jpg"
     ]
@@ -53,18 +53,18 @@ const INITIAL_PROPERTIES = [
     id: 3,
     name: "Uniq Residencial - Modern",
     price: "A partir de R$ 213.000",
-    image: "https://i.postimg.cc/MZjsMYBw/Whats-App-Image-2026-04-19-at-16-26-11.jpg",
+    image: "https://i.postimg.cc/y6SfgTR8/Whats-App-Image-2026-04-19-at-16-26-13-(1).jpg",
     details: "Inteligência & Design",
     description: "Inovação é a alma do Uniq. Apartamentos de 2 quartos com 1 suíte pensados para o estilo de vida cosmopolita. Arquitetura autoral, espaços otimizados e uma localização que te deixa no centro de tudo. O investimento com maior potencial de valorização da região, unindo praticidade e o luxo acessível do padrão Xavier.",
     tags: ["2 Quartos", "1 Suíte", "Alta Valorização"],
     allImages: [
+      "https://i.postimg.cc/y6SfgTR8/Whats-App-Image-2026-04-19-at-16-26-13-(1).jpg",
       "https://i.postimg.cc/MZjsMYBw/Whats-App-Image-2026-04-19-at-16-26-11.jpg",
       "https://i.postimg.cc/HW7SctMY/Whats-App-Image-2026-04-19-at-16-26-12.jpg",
       "https://i.postimg.cc/xjbsJPmT/Whats-App-Image-2026-04-19-at-16-26-12-(1).jpg",
       "https://i.postimg.cc/wxsWykN6/Whats-App-Image-2026-04-19-at-16-26-12-(2).jpg",
       "https://i.postimg.cc/kMtj6ySM/Whats-App-Image-2026-04-19-at-16-26-12-(3).jpg",
       "https://i.postimg.cc/ryth094s/Whats-App-Image-2026-04-19-at-16-26-13.jpg",
-      "https://i.postimg.cc/y6SfgTR8/Whats-App-Image-2026-04-19-at-16-26-13-(1).jpg",
       "https://i.postimg.cc/pVn0hBjd/Whats-App-Image-2026-04-19-at-16-26-13-(2).jpg",
       "https://i.postimg.cc/sfZnQJWX/Whats-App-Image-2026-04-19-at-16-26-13-(3).jpg",
       "https://i.postimg.cc/MZjsMYBQ/Whats-App-Image-2026-04-19-at-16-26-14.jpg",
@@ -387,12 +387,6 @@ export default function App() {
                     className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 rounded-xl"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute bottom-10 left-10 right-10 p-10 bg-[#050a14]/60 backdrop-blur-xl border border-white/10 rounded-xl">
-                    <p className="text-gold text-[10px] uppercase tracking-widest mb-2 font-black flex items-center gap-2">
-                       DISPONIBILIDADE IMEDIATA
-                    </p>
-                    <h3 className="text-3xl font-fashion italic">Penthouses Selecionadas</h3>
-                  </div>
                 </div>
               </motion.div>
             </div>
