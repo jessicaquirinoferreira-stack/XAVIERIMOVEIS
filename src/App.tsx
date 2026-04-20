@@ -76,7 +76,7 @@ const INITIAL_PROPERTIES = [
 ];
 
 const LOGO_B64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByklEQVR4nO3csY2DMBQF0D8uAGUh7B6GsgYrkDWYghGogRHYhDFAYASGgI6XG1NIdV0u2vS+5Oue/X7Z0m9KA4CIsUoXABAzKFAgoECBgAIFAsQUCBgoUCCgQIGAAgUCAQUKBBQoEFCgQICAAgUCAQUKBBQoEFAgoECBgAIFAsQUCBgoUCAQUKBAQIECgZgCBQMEChSIAQUCBAUCMQUKBAgKBOIMCBQoxBIoEFCgQIEYUCBAYKBAQIECMRv7I8S09wREfInYnyH2Y4jZInZoCB8YwgcG+8AgHzDQBwb4gEE+MJAPDPEBAnxgQA8M6IEBPTCIBwZxgIE8MAgDDOSBIXxgIA8M4QND+MAQPjCAByYBAhYgYAECECBgAQIYIGABABAgYAECECBgAQIYIGABABAYIAABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAYIDABABAIEDAAAYYDAhiAAMP9iAEHDBgwYMABAwaY3A4Y/H7A4M8DBn8fMPDzgEGfBwz4PGDA3xcY8HXA4NcDAAAAMB9/AbpWl73h+ZgXAAAAAElFTkSuQmCC";
-const WHATSAPP_LINK = "https://wa.me/5521999905616?text=Olá!%20Vi%20seu%20portfolio%20luxuoso%20e%20gostaria%20de%20mais%20informações.";
+const WHATSAPP_LINK = "https://wa.me/5521984314779?text=Olá!%20Vi%20seu%20portfolio%20luxuoso%20e%20gostaria%20de%20mais%20informações.";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -522,9 +522,9 @@ export default function App() {
                 <div>
                    <h4 className="text-gold font-sophisticated text-2xl italic mb-8">Contato</h4>
                    <div className="flex flex-col gap-6 text-white/40 text-sm">
-                     <a href={WHATSAPP_LINK} target="_blank" className="flex items-center gap-3 hover:text-gold transition-colors text-lg">
-                       <MessageCircle size={24} /> WhatsApp: (21) 99990-5616
-                     </a>
+                      <a href={WHATSAPP_LINK} target="_blank" className="flex items-center gap-3 hover:text-gold transition-colors text-lg">
+                        <MessageCircle size={24} /> WhatsApp: (21) 98431-4779
+                      </a>
                      <div className="flex items-center gap-3 text-lg">
                        <Phone size={24} /> Atendimento Premium 24/7
                      </div>
