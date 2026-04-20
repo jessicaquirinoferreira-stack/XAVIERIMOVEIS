@@ -602,13 +602,13 @@ export default function App() {
                         <>
                           <button 
                             onClick={prevImage}
-                            className="absolute left-4 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all opacity-0 group-hover:opacity-100"
+                            className="absolute left-4 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all z-20 shadow-lg"
                           >
                             <ChevronRight className="rotate-180" size={24} />
                           </button>
                           <button 
                             onClick={nextImage}
-                            className="absolute right-4 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black transition-all opacity-0 group-hover:opacity-100"
+                            className="absolute right-4 w-12 h-12 rounded-full bg-black/60 backdrop-blur-md border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-black transition-all z-20 shadow-lg"
                           >
                             <ChevronRight size={24} />
                           </button>
@@ -616,13 +616,18 @@ export default function App() {
                       )}
 
                       {/* Image Counter Indicator */}
-                      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-xl px-4 py-1.5 rounded-full border border-white/10 flex gap-2">
-                        {selectedProperty.allImages?.map((_: any, idx: number) => (
-                          <div 
-                            key={idx}
-                            className={`w-1.5 h-1.5 rounded-full transition-all ${idx === currentImgIndex ? "bg-gold scale-125" : "bg-white/20"}`}
-                          />
-                        ))}
+                      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-xl px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-3">
+                        <span className="text-[10px] text-white/40 font-bold tabular-nums">
+                          {currentImgIndex + 1} / {selectedProperty.allImages?.length || 1}
+                        </span>
+                        <div className="flex gap-1.5 border-l border-white/10 pl-3">
+                          {selectedProperty.allImages?.map((_: any, idx: number) => (
+                            <div 
+                              key={idx}
+                              className={`w-1 h-1 rounded-full transition-all duration-300 ${idx === currentImgIndex ? "bg-gold scale-125" : "bg-white/10"}`}
+                            />
+                          ))}
+                        </div>
                       </div>
                     </div>
 
