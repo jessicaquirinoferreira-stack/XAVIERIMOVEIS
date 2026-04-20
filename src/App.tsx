@@ -128,8 +128,8 @@ export default function App() {
   };
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setDoorOpen(true), 3500); // Start opening at 3.5s
-    const timer2 = setTimeout(() => setLoading(false), 6500); // Extend slightly to 6.5s for fade-out polish
+    const timer1 = setTimeout(() => setDoorOpen(true), 800); // Começa a abrir em 0.8s
+    const timer2 = setTimeout(() => setLoading(false), 2200); // Finaliza carregamento em 2.2s
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -143,7 +143,7 @@ export default function App() {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 0.8 }}
             className="fixed inset-0 z-[100] flex items-center justify-center bg-[#051121] overflow-hidden"
             style={{ perspective: "2000px" }}
           >
@@ -208,7 +208,7 @@ export default function App() {
             <motion.div
               initial={{ rotateY: 0 }}
               animate={doorOpen ? { rotateY: -110 } : { rotateY: 0 }}
-              transition={{ duration: 2.5, ease: [0.7, 0, 0.3, 1] }}
+              transition={{ duration: 1.8, ease: [0.7, 0, 0.3, 1] }}
               style={{ originX: "left", transformStyle: "preserve-3d" }}
               className="absolute left-0 top-0 w-1/2 h-full bg-[#0a192f] border-r-8 border-gold shadow-[30px_0_60px_rgba(0,0,0,0.9)] z-[150] flex items-center justify-end"
             >
@@ -221,7 +221,7 @@ export default function App() {
             <motion.div
               initial={{ rotateY: 0 }}
               animate={doorOpen ? { rotateY: 110 } : { rotateY: 0 }}
-              transition={{ duration: 2.5, ease: [0.7, 0, 0.3, 1] }}
+              transition={{ duration: 1.8, ease: [0.7, 0, 0.3, 1] }}
               style={{ originX: "right", transformStyle: "preserve-3d" }}
               className="absolute right-0 top-0 w-1/2 h-full bg-[#0a192f] border-l-8 border-gold shadow-[-30px_0_60px_rgba(0,0,0,0.9)] z-[150] flex items-center justify-start"
             >
@@ -238,7 +238,7 @@ export default function App() {
                 ? { opacity: 0, scale: 1.2, translateZ: 500, filter: "blur(40px)" } 
                 : { scale: 1, opacity: 1, translateZ: -200, filter: "blur(0px)" }
               }
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
               className="z-[100] flex flex-col items-center gap-10"
               style={{ transformStyle: "preserve-3d" }}
             >
@@ -246,7 +246,7 @@ export default function App() {
                 <motion.div
                   initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: 0.8, duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ delay: 0.3, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                   className="space-y-4"
                 >
                   <p className="text-gold/60 font-elegant text-[9px] lg:text-[11px] tracking-[1.2em] uppercase mb-8 ml-[1.2em] font-light italic">Bem-vindo à Xavier</p>
